@@ -15,7 +15,8 @@ def send_info():
         time.sleep(10)
         vk.messages.send(  # Отправляем сообщение
             user_id=event.user_id,
-            message='Вот тебе ссылка, молодец что нашел код, добро пожаловать в братство. Но не расслабляйся, ещё предстоят испытания.\n https://vk.me/join/AJQ1d1vP4BT3_VhNkfSEMe4X',
+            message='Вот тебе ссылка, молодец что нашел код, добро пожаловать в братство. Но не расслабляйся, '
+                    'ещё предстоят испытания.\n https://vk.me/join/AJQ1d1vP4BT3_VhNkfSEMe4X',
             random_id=randint(1, 12421344122222222222225)
         )
     except:
@@ -27,4 +28,7 @@ for event in longpoll.listen():
         # Слушаем longpoll, если пришло сообщение то:
         msg = event.text
         if msg.lower() == 'хочу в sss':  # Если написали заданную фразу
-            send_info()
+            try:
+                send_info()
+            except:
+                pass
